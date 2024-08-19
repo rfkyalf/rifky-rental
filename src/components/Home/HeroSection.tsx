@@ -5,9 +5,7 @@ import { MdOutlineKeyboardDoubleArrowDown } from 'react-icons/md';
 export default function HeroSection() {
   return (
     <div className="h-screen relative overflow-hidden px-8 pt-20">
-      <div className="bg-white opacity-10 absolute -top-40 -left-40 w-[450px] h-[450px] blur-3xl rounded-full" />
-      <div className="bg-white opacity-10 absolute -bottom-40 -right-40 w-[450px] h-[450px] blur-3xl rounded-full" />
-      <div className="bg-gradient-to-t to-neutral-900 via-blue-950 from-blue-950 opacity-30 z-0 h-screen w-96 absolute inset-0 mx-auto" />
+      <BgAccent />
       <div className="flex flex-col relative">
         <h1 className="text-7xl font-bold text-neutral-100 w-[700px] leading-[80px]">
           Perjalanan Nyaman dengan Kendaraan Pilihan
@@ -44,5 +42,15 @@ export default function HeroSection() {
         <MdOutlineKeyboardDoubleArrowDown className="text-neutral-50 size-10 animate-bounce" />
       </div>
     </div>
+  );
+}
+
+function BgAccent() {
+  return (
+    <>
+      <div className="bg-white opacity-10 absolute -top-40 -left-40 w-[450px] h-[450px] blur-3xl rounded-full" />
+      <div className="bg-white opacity-10 absolute -bottom-40 -right-40 w-[450px] h-[450px] blur-3xl rounded-full" />
+      <div className="bg-gradient-to-t to-neutral-900 via-blue-950 from-blue-950 opacity-30 z-0 h-screen w-96 absolute inset-0 mx-auto" />
+    </>
   );
 }
