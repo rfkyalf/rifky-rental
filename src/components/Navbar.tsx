@@ -1,9 +1,50 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState('up');
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY === 0) {
+        setScrollDirection('up'); // Menampilkan navbar saat di bagian paling atas
+      } else if (currentScrollY > lastScrollY) {
+        setScrollDirection('down');
+      } else {
+        setScrollDirection('up');
+      }
+
+      if (currentScrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="fixed z-50 px-8 py-6 w-full">
+    <nav
+      className={`fixed z-50 px-8 py-6 w-full transition-all duration-500 ${
+        isScrolled ? 'bg-black/40 backdrop-blur-lg' : 'bg-transparent'
+      } ${scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0'}`}
+    >
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-neutral-50">
           Rifky<span className="text-blue-600">Rental</span>

@@ -22,7 +22,7 @@ export default function HeroSection() {
         </p>
         <Link
           href="#"
-          className="bg-blue-800 px-8 py-2 mt-8 rounded-lg w-fit text-neutral-50 font-medium shadow-[0_0_20px] shadow-blue-800"
+          className="bg-blue-800 px-8 py-2 mt-8 rounded-lg w-fit text-neutral-50 font-medium shadow-[0_0_25px_10px] shadow-blue-800/80"
         >
           Buka Katalog
         </Link>
